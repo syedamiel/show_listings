@@ -1,6 +1,0 @@
-add_shortcode( 'list-joblistings', function () {
-	
-	$out = '<p>We have 80 active job listings.</p>';
-		
-	return $out;
-} );
