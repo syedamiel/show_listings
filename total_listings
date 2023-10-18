@@ -1,0 +1,19 @@
+add_shortcode('list-joblistings', 'listJobListings');
+
+function listJobListings() {
+    global $wpdb;
+
+    // Define the table name
+    $table_name = $wpdb->prefix . 'posts';
+
+    // SQL query to count rows where post_type is 'hp_listing'
+    $sql = $wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE post_type = %s", 'hp_listing');
+
+    // Execute the query
+    $count = $wpdb->get_var($sql);
+
+    // Display the count
+    $out = "<div class='Currentjobs'><p>Posted Jobs : $count</p></div>";
+
+    return $out;
+}
